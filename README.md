@@ -1,8 +1,9 @@
-# Data Science Stack - Cookiecutter
-Cookiecutter to launch an awesome Data Science toolstack in Docker.
+# Space Science Stack - Cookiecutter
+Cookiecutter to launch a space science toolstack in Docker.
+Forked from Joshua Görner's excellent data science stack: https://github.com/jgoerner/data-science-stack-cookiecutter
 
-# See it in action
-[![asciicast](https://asciinema.org/a/CcZ9duIdP0pBfZWxw5Nt1tFVZ.png)](https://asciinema.org/a/CcZ9duIdP0pBfZWxw5Nt1tFVZ)
+# Installation
+run 'cookiecutter https://github.com/SimonTheChain/space-science-stack-cookiecutter.git'
 
 # Overall Architecture
 ![architecture](./architecture.png)

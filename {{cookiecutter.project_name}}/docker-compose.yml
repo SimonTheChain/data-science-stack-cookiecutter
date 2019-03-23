@@ -15,6 +15,7 @@ services:
     volumes:
       - ./shared/notebooks/:/home/jovyan/work/notebooks
       - ./shared/dags/:/home/jovyan/work/dags
+      - ./shared/datasets/:/home/jovyan/work/datasets
       - ./services/apistar/api/:/home/jovyan/work/api
     ports:
       - 8888:8888
@@ -63,6 +64,7 @@ services:
     volumes:
       - ./shared/requirements.txt:/requirements.txt
       - ./shared/dags/:/usr/local/airflow/dags
+      - ./shared/datasets/:/usr/local/airflow/datasets
     ports:
       - 8080:8080
     command: webserver
