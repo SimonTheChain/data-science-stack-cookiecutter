@@ -18,7 +18,7 @@ services:
       - ./shared/datasets/:/home/jovyan/work/datasets
       - ./services/apistar/api/:/home/jovyan/work/api
     ports:
-      - 8889:8889
+      - 8888:8888
     entrypoint: sh -c 'start-notebook.sh --NotebookApp.token=$$JUPYTER_PASSWORD'
 
   # Visualization
@@ -32,7 +32,7 @@ services:
         - ./config/superset_container.env
         - ./config/superset_database.env
     ports:
-      - 8089:8089
+      - 8088:8088
 
   # Misc Storage
   postgres:
@@ -48,7 +48,7 @@ services:
       - postgres_volume:/var/lib/postgresql/data/
       - ./services/postgres/:/docker-entrypoint-initdb.d/
     ports:
-      - 5433:5433
+      - 5432:5432
 
   # Scheduling
   airflow:
@@ -66,7 +66,7 @@ services:
       - ./shared/dags/:/usr/local/airflow/dags
       - ./shared/datasets/:/usr/local/airflow/datasets
     ports:
-      - 8081:8081
+      - 8080:8080
     command: webserver
 
   # Model Storage
@@ -79,7 +79,7 @@ services:
     volumes:
         - minio_volume:/data
     ports:
-        - 9001:9001
+        - 9000:9000
     command: server /data
 
   # API
@@ -92,7 +92,7 @@ services:
     volumes:
       - ./services/apistar/api:/usr/src/app
     ports:
-      - 8001:8001
+      - 8000:8000
     command: gunicorn app:app -b 0.0.0.0:8000
 
   # Admin Overview
@@ -104,7 +104,7 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
       - portainer_volume:/data
     ports:
-      - 9091:9001
+      - 9090:9000
     command: -H unix:///var/run/docker.sock
 
 # Volumes to persist data
